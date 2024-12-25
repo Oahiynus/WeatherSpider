@@ -7,7 +7,12 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
-
 class WeatherspiderPipeline:
     def process_item(self, item, spider):
+        return item
+class WeatherspiderPipeline(object):
+    def process_item(self, item, spider):
+        with open('weather.txt', 'a', encoding='utf8') as fp: 
+            fp.write(item['city']+'\n') 
+            fp.write(item['weather']+'\n\n')
         return item

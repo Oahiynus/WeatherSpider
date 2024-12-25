@@ -11,10 +11,10 @@ class WeatherspiderItem(scrapy.Item):
     # name = scrapy.Field()
     scrapy.Field() 
     city = scrapy.Field() # 城市
-    date = scrapy.Field() # 日期
-    week = scrapy.Field() # 星期几
+    #date = scrapy.Field() # 日期
+    #week = scrapy.Field() # 星期几
     weather = scrapy.Field() # 天气
-    minTempeture = scrapy.Field() # 最低温度
-    maxTempeture = scrapy.Field() # 最高温度
-    wind = scrapy.Field() # 风向
+    #minTempeture = scrapy.Field() # 最低温度
+    #maxTempeture = scrapy.Field() # 最高温度
+    #wind = scrapy.Field() # 风向
     pass

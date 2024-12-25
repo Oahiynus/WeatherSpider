@@ -8,9 +8,10 @@ from ..items import WeatherspiderItem
 class EverycitySpider(scrapy.Spider):
     name = "everyCity"
     allowed_domains = ["www.weather.com.cn"]
-    start_urls = ["https://weather.com.cn"]
+    start_urls = []
+    # "https://weather.com.cn"
     # 遍历各城市，获取要爬取的页面 URL
-    url = r'yn.weather.com.cn' 
+    url = r"http://yn.weather.com.cn/" 
     with urlopen(url) as fp:
         contents = fp.read().decode()
 
@@ -35,6 +36,6 @@ class EverycitySpider(scrapy.Spider):
             low = li.xpath('./p[@class="tem"]//i//text()').extract()[0]
             wind = li.xpath('./p[@class="win"]//em//span[1]/@title').extract()[0] 
             wind = wind + li.xpath('./p[@class="win"]//i//text()').extract()[0]
-            weather = weather + date+':'+cloud+','+high+r'/'+low+','+wind+'\n'
+        weather = weather + date+':'+cloud+','+high+r'/'+low+','+wind+'\n'
         item['weather'] = weather
         return [item]
